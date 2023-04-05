@@ -1,0 +1,10 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Units
+
+# Macros / Replacement Parameter definitions
+$systemVersion=systemVersion(catalog(id[default='PowertoolsClassification']),version[default='1.0'])
+
+
+INSERT_UPDATE ClassificationAttributeUnit;code[unique=true];symbol;unitType;$systemVersion[unique=true]

@@ -1,0 +1,61 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImPex for Importing Product Media
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$siteResource=jar:de.hybris.platform.powertoolsstore.constants.PowertoolsStoreConstants&/powertoolsstore/import/sampledata/productCatalogs/$productCatalog
+$thumbnail=thumbnail(code, $catalogVersion)
+$picture=picture(code, $catalogVersion)
+$thumbnails=thumbnails(code, $catalogVersion)
+$detail=detail(code, $catalogVersion)
+$normal=normal(code, $catalogVersion)
+$others=others(code, $catalogVersion)
+$data_sheet=data_sheet(code, $catalogVersion)
+$medias=medias(code, $catalogVersion)
+$galleryImages=galleryImages(qualifier, $catalogVersion)
+
+INSERT_UPDATE MediaFolder;qualifier[unique=true];path[unique=true]
+;images;images
+
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];$catalogVersion;folder(qualifier)[default=images]
+;1200Wx1200H;/1200Wx1200H/1128762-6838.jpg;$siteResource/images/1200Wx1200H/1128762-6838.jpg
+;515Wx515H;/515Wx515H/1128762-6838.jpg;$siteResource/images/515Wx515H/1128762-6838.jpg
+;300Wx300H;/300Wx300H/1128762-6838.jpg;$siteResource/images/300Wx300H/1128762-6838.jpg
+;96Wx96H;/96Wx96H/1128762-6838.jpg;$siteResource/images/96Wx96H/1128762-6838.jpg
+;65Wx65H;/65Wx65H/1128762-6838.jpg;$siteResource/images/65Wx65H/1128762-6838.jpg
+;30Wx30H;/30Wx30H/1128762-6838.jpg;$siteResource/images/30Wx30H/1128762-6838.jpg
+;1200Wx1200H;/1200Wx1200H/1979039-277.jpg;$siteResource/images/1200Wx1200H/1979039-277.jpg
+;515Wx515H;/515Wx515H/1979039-277.jpg;$siteResource/images/515Wx515H/1979039-277.jpg
+;300Wx300H;/300Wx300H/1979039-277.jpg;$siteResource/images/300Wx300H/1979039-277.jpg
+;96Wx96H;/96Wx96H/1979039-277.jpg;$siteResource/images/96Wx96H/1979039-277.jpg
+;65Wx65H;/65Wx65H/1979039-277.jpg;$siteResource/images/65Wx65H/1979039-277.jpg
+;30Wx30H;/30Wx30H/1979039-277.jpg;$siteResource/images/30Wx30H/1979039-277.jpg
+;1200Wx1200H;/1200Wx1200H/693923-4863.jpg;$siteResource/images/1200Wx1200H/693923-4863.jpg
+;515Wx515H;/515Wx515H/693923-4863.jpg;$siteResource/images/515Wx515H/693923-4863.jpg
+;300Wx300H;/300Wx300H/693923-4863.jpg;$siteResource/images/300Wx300H/693923-4863.jpg
+;96Wx96H;/96Wx96H/693923-4863.jpg;$siteResource/images/96Wx96H/693923-4863.jpg
+;65Wx65H;/65Wx65H/693923-4863.jpg;$siteResource/images/65Wx65H/693923-4863.jpg
+;30Wx30H;/30Wx30H/693923-4863.jpg;$siteResource/images/30Wx30H/693923-4863.jpg
+;1200Wx1200H;/1200Wx1200H/4567165-4372.jpg;$siteResource/images/1200Wx1200H/4567165-4372.jpg
+;515Wx515H;/515Wx515H/4567165-4372.jpg;$siteResource/images/515Wx515H/4567165-4372.jpg
+;300Wx300H;/300Wx300H/4567165-4372.jpg;$siteResource/images/300Wx300H/4567165-4372.jpg
+;96Wx96H;/96Wx96H/4567165-4372.jpg;$siteResource/images/96Wx96H/4567165-4372.jpg
+;65Wx65H;/65Wx65H/4567165-4372.jpg;$siteResource/images/65Wx65H/4567165-4372.jpg
+;30Wx30H;/30Wx30H/4567165-4372.jpg;$siteResource/images/30Wx30H/4567165-4372.jpg
+
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;1128762-6838;/1200Wx1200H/1128762-6838.jpg,/515Wx515H/1128762-6838.jpg,/300Wx300H/1128762-6838.jpg,/96Wx96H/1128762-6838.jpg,/65Wx65H/1128762-6838.jpg,/30Wx30H/1128762-6838.jpg
+;1979039-277;/1200Wx1200H/1979039-277.jpg,/515Wx515H/1979039-277.jpg,/300Wx300H/1979039-277.jpg,/96Wx96H/1979039-277.jpg,/65Wx65H/1979039-277.jpg,/30Wx30H/1979039-277.jpg
+;693923-4863;/1200Wx1200H/693923-4863.jpg,/515Wx515H/693923-4863.jpg,/300Wx300H/693923-4863.jpg,/96Wx96H/693923-4863.jpg,/65Wx65H/693923-4863.jpg,/30Wx30H/693923-4863.jpg
+;4567165-4372;/1200Wx1200H/4567165-4372.jpg,/515Wx515H/4567165-4372.jpg,/300Wx300H/4567165-4372.jpg,/96Wx96H/4567165-4372.jpg,/65Wx65H/4567165-4372.jpg,/30Wx30H/4567165-4372.jpg
+
+
+INSERT_UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
+;693923;/300Wx300H/693923-4863.jpg;/96Wx96H/693923-4863.jpg;/1200Wx1200H/693923-4863.jpg;/515Wx515H/693923-4863.jpg,/65Wx65H/693923-4863.jpg,/30Wx30H/693923-4863.jpg;/300Wx300H/693923-4863.jpg;/96Wx96H/693923-4863.jpg;693923-4863
+;1128762;/300Wx300H/1128762-6838.jpg;/96Wx96H/1128762-6838.jpg;/1200Wx1200H/1128762-6838.jpg;/515Wx515H/1128762-6838.jpg,/65Wx65H/1128762-6838.jpg,/30Wx30H/1128762-6838.jpg;/300Wx300H/1128762-6838.jpg;/96Wx96H/1128762-6838.jpg;1128762-6838
+;1979039;/300Wx300H/1979039-277.jpg;/96Wx96H/1979039-277.jpg;/1200Wx1200H/1979039-277.jpg;/515Wx515H/1979039-277.jpg,/65Wx65H/1979039-277.jpg,/30Wx30H/1979039-277.jpg;/300Wx300H/1979039-277.jpg;/96Wx96H/1979039-277.jpg;1979039-277
+;4567165;/300Wx300H/4567165-4372.jpg;/96Wx96H/4567165-4372.jpg;/1200Wx1200H/4567165-4372.jpg;/515Wx515H/4567165-4372.jpg,/65Wx65H/4567165-4372.jpg,/30Wx30H/4567165-4372.jpg;/300Wx300H/4567165-4372.jpg;/96Wx96H/4567165-4372.jpg;4567165-4372

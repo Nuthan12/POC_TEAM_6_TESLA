@@ -1,0 +1,11 @@
+#Ant properties
+#Fri Sep 30 17:06:54 CEST 2022
+version.api=2205
+vendor=hybris
+group.id=de.hybris.platform
+name=poct6initialdata
+description=poct6initialdata
+builddate=20220930 1705
+releasedate=20220601 2009
+version=2205.4
+module.name=platform-module

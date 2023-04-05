@@ -1,0 +1,31 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Category Classifications
+
+# Macros / Replacement Parameter definitions
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$classCatalogVersion=catalogversion(catalog(id[default='PowertoolsClassification']),version[default='1.0'])[unique=true,default='PowertoolsClassification:1.0']
+$classSystemVersion=systemVersion(catalog(id[default='PowertoolsClassification']),version[default='1.0'])[unique=true]
+$class=classificationClass(ClassificationClass.code,$classCatalogVersion)[unique=true]
+
+$lang=en
+
+# Insert Classifications
+UPDATE ClassificationClass;code[unique=true];$classCatalogVersion;name[lang=$lang]
+;;1358;Accessories & Spares;
+;;1360;Accessories & Spares;
+;;1595;Accessories & Spares;
+;;1593;Accessories & Spares;
+;;1596;Accessories & Spares;
+
+# Insert Classification Attributes
+UPDATE ClassificationAttribute;code[unique=true];$classSystemVersion;name[lang=$lang]
+;;Additional accessories, 1358;Additional accessories;
+;;Additional accessories, 1360;Additional accessories;
+;;Additional accessories, 1595;Additional accessories;
+;;Additional accessories, 1593;Additional accessories;
+;;Additional accessories, 1596;Additional accessories;

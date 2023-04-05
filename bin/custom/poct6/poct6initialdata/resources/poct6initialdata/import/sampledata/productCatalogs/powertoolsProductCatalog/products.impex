@@ -1,0 +1,34 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+
+# Language
+$lang=en
+
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code)[default=pieces];$catalogVersion
+ ;4567165;1358, brand_753;TESLA;TCT001;500
+ ;693923;1358, brand_753;TESLA;TCT002;500
+ ;1979039;1358, brand_753;TESLA;TCT003;500
+ ;1128762;1358, brand_753;TESLA;TCT004;500
+ 
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+ ;4567165; Enhanced Auto pilot version CT ; While driving on the highway, Automatic Lane Change will position your car in the optimal lane to prepare for merges and exits while overtaking slow cars.
+ ;1979039;Center Console USB hub version CT ; With Wider Compatibility And Multiple Performances, You Do Not Need To Worry 
+ ;693923;Arachnid Wheels version CT ;All-Season tires are designed to work across the widest range of conditions and offer good traction and comfort in moderate climates
+ ;1128762;Yoke Steering version CT;With 2200 x 1300 resolution, colors and exceptional responsiveness, an adjustable 17” display tilts left or right for gaming, movies and more
+ 
+ 
+ 
+ 
+ 
