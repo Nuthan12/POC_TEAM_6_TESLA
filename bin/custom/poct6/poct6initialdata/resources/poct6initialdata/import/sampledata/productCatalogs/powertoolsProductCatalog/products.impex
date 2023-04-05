@@ -1,0 +1,30 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+
+# Language
+$lang=en
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code)[default=pieces];$catalogVersion
+;4567133;1596, brand_753;TESLA;TMY001;9001
+;4567173;1596, brand_753;TESLA;TMY002;9002
+;4567174;1596, brand_753;TESLA;TMY003;9003
+;4567175;1596, brand_753;TESLA;TMY004;9004
+;4567177;1596, brand_753;TESLA;TMY005;9005
+
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+;4567133;Weather Interior Liners;- Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model Y All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the foot-well carpet and easy cleanup. Exclusive grid pattern crafted by Tesla Design Studio and custom-made using the latest digital measurements for Model Y.100% recyclable and free of cadmium, lead, latex and PVC.;Interior Liners
+;4567173;Glass Roof Sunshade;- Constructed of lightweight mesh fabric with a collapsible rigid frame, the Model Y Glass Roof Sunshade blocks 66% of luminous transmittance without compromising rearward visibility. Easily removable, the sunshade is installed onto the interior of the glass roof with provided clips. When removed, the shade collapses and can be stored in the included zippered pouch;Glass Roof Sunshade
+;4567174;Snow Chains;- The König XG-12 Pro 252 snow chain provides superior traction, driving comfort and performance in snowy conditions. Featuring easy installation, the patented micro-regulation system and pattern design with double traction plates offer perfect chain self-tensioning and excellent traction. Approved for Tesla-manufactured 19” and 20” wheels and Tesla-approved 19” and 20” tires for Model Y.;Snow Chains
+;4567177;Trunk Storage Bins;- Model Y Trunk Storage Bins help keep your trunk organized and clean. The waterproof rubber bins slip into the left and right trunk cavities allowing you to stow shoes, tools, gear and other items that might otherwise dirty your trunk's interior. The matching carpeted lids blend seamlessly into the trunk for expanded floor space and cargo area.;Trunk Storage Bins
+;4567175;Solid State Drive;-Store everything. From Tesla Arcade games to Dashcam footage, our 1 TB Solid State Drive (SSD) allows you to save all your vehicle data in one place. This automotive-grade external SSD is designed for durability withstanding extreme cabin temperatures, vehicle shocks and vibrations. With an extended lifespan compared to similar storage devices and read/write speeds optimized for gaming, the Solid State Drive supports Steam gaming.;Solid State Drive
