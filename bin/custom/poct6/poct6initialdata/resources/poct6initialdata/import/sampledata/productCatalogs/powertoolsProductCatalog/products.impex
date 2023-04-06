@@ -1,0 +1,21 @@
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+$lang=en
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code);$catalogVersion;$approved
+;54632;1360;Tesla;TS76371;102
+;2116275;1360;Tesla;TS78546;450
+;2116277;1360;Tesla;TS48857;469
+;3715400;1360;Tesla;TS43854;454
+;3755212;1360;Tesla;TS48757;602
+
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+;54632;Hitch Rack (Model - S);Hitch Rack for Tesla Model - S;Conveniently stow your skis and snowboards on the exterior of your Model S. The Model S Ski/Snowboard Carrier is easily assembled and allows for lockable storage with soft rubber coated arms that secure equipment without the risk of scratching ski or snowboard surfaces.
+;2116275;Weather Int Liners (Model - S);Weather Int Liners For Tesla Model - S;Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.
+;2116277;Key Fob;Key Fob for Tesla Model - S;Locking and unlocking your Tesla vehicle has never been easier. Keep your key fob in your pocket and simply pull on the door handle for easy entry. Same with the trunk. Your key fob is automatically enabled when you pair it with your vehicle.
+;3715400;Snow Chain;Snow Chain Tool For Tesla Model - S;The König K-Summit XL K55 Max Snow Chains provide excellent traction and durability in snowy conditions. With no complex attachments, the newly upgraded design simply requires one fixing point on the outer side of the drive wheels. The fitting system has been pre-configured for Model S 19” wheels.
+;3755212;USB Drive;USB Drive For Tesla Model - S;SLC USB stands for Single-Level Cell, which is normally used in industrial grade applications. SLC is >100 times more reliable than conventional TLC NAND USB flash drives which is the perfect choice for recording Tesla footages

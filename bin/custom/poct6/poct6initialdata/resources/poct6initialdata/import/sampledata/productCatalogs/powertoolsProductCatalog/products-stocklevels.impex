@@ -1,0 +1,17 @@
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$vendor=powertools
+
+INSERT_UPDATE Warehouse;code[unique=true];name[lang=en]
+;pw_warehouse_s;Powertools Warehouse South
+;pw_warehouse_e;Powertools Warehouse East
+;pw_warehouse_w;Powertools Warehouse West
+;pw_warehouse_n;Powertools Warehouse North
+
+INSERT_UPDATE StockLevel;productCode[unique=true];warehouse(code)[unique=true,default=default];available;inStockStatus(code);maxPreOrder[default=1];maxStockLevelHistoryCount[default=-1];overSelling[default=0];preOrder[default=0];reserved[default=0]
+;54632;pw_warehouse_s;2000;notSpecified
+;2116277;pw_warehouse_s;2000;notSpecified
+;2116275;pw_warehouse_s;2000;notSpecified
+;3715400;pw_warehouse_s;2000;notSpecified
+;3755212;pw_warehouse_s;2000;notSpecified
