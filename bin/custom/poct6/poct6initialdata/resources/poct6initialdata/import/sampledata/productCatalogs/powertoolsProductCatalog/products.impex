@@ -1,0 +1,32 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+
+# Language
+$lang=en
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code)[default=pieces];$catalogVersion
+ ;3755213;1593, brand_753;TESLA;TMX001;700
+ ;3788611;1593, brand_753;;TESLA;TMX002;700
+ ;3788612;1593, brand_753;;TESLA;TMX003;700
+ ;3788616;1593, brand_753;;TESLA;TMX004;700
+ ;3788619;1593, brand_753;;TESLA;TMX005;700
+
+ 
+ 
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+ ;3755213;Hitch Rack (Model - X);<b>The Model X Hitch Rack is a premium tilt-down hitch rack that comes fully assembled out of the box. Installation is a breeze with the AutoPin™ and locking SpeedKnob. New ZipStrips make loading and securing bikes simpler than ever. Padded arms cradle your bike's frame and can be folded down when not in use.</b><br/><br/> <b>Features</b><br/>- Fits both 1.25" and 2" hitch receivers <br/>- Carries up to 4 bikes <br/>- Overall arm width - 12.25" <br/>- Overall height - 36.5" <br/>- Weight - 40lbs <br/><br/><b>Includes </b><br/>- 1x hitch rack <br/>- 12x zip strips<br/>;Tesla Model X Hitch Rack 
+ ;3788611;Snow Chain (Model - X);<b>The König K-Summit K67 Snow Chains provide excellent traction and durability in snowy conditions. With no complex attachments, the newly upgraded design simply requires one fixing point on the outer side of the drive wheels and is pre-configured for your Model X wheel size.</b><br/><br/> <b>Features</b><br/>- 0mm inside the wheel <br/>- Innovative ratchet system <br/>- Tread chain with alternating injection-molded plastic plates with hard metal studs and steel chain <br/>- Welded bars for better grip and performance <br/>- Foldable arms for easy storage <br/><br/><b>Includes: </b><br/>- 1x pair of chains for two wheels <br/>- 1x nylon protective bag <br/>;Tesla Model X Snow Chains 
+ ;3788612;Key Fob (Model - X);<b>Locking and unlocking your Tesla vehicle has never been easier. Keep your key fob in your pocket and simply pull on the door handle for easy entry. Same with the trunk. Your key fob is automatically enabled when you pair it with your vehicle.</b><br/><br/> Includes </b><br/>- 1x key fob <br/>- 1x coin cell battery <br/>;Tesla Model X Key Fob 
+ ;3788616;USB Drive (Model - X);<b>Store your Sentry Mode and Dashcam footage with the USB Drive - 128 GB. Protect against theft, break-ins and threats when your car is left unattended with up to 128 GB of video storage capacity. Insert the pre-formatted USB Drive into the USB-A port inside the center console or the rear of the glove box before enabling Sentry Mode for a unique layer of safety and security you can take anywhere.</b><br/><br/> <b>;Tesla Model X USB Drive
+ ;3788619;Weather Interior Liners(Model - X);<b>Model X All-Weather Interior Liners are made from thermoplastic elastomer material for ultimate protection and spatial coverage. Unlike traditional floor mats, Model X All-Weather Interior Liners are comprised of vertical walls that ensure maximum protection to the interior carpet and easy cleanup.100% recyclable and free of cadmium, lead, latex and PVC.</b><br/><br/> <b>Six Seats Includes</b><br/>- 1x first row all-weather liner [driver] <br/>- 1x first row all-weather liner [passenger] <br/>- 1x second row all-weather liner <br/>- 1x third row all-weather liner <br/>;Tesla Model X  All-Weather Interior Liners
