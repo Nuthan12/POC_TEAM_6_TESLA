@@ -1,0 +1,475 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+
+# Language
+$lang=en
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code)[default=pieces];$catalogVersion
+ ;54632;1360; brand_2023;TS76371;102
+ ;2116275;1360; brand_2023;TS78546;450
+ ;2116277;1360; brand_2023;TS48857;469
+ ;3715400;1360; brand_2023;TS43854;454
+ ;3755212;1360; brand_2023;TS48757;602
+ ;4567180;1595, brand_2023;Tesla;0.601.882.M03;3165140559720
+ ;4567181;1595, brand_2023;Tesla;0.601.893.F00;3165140484565
+ ;4567182;1595, brand_2023;Tesla;0.601.825.200;3165140362382
+ ;4567189;1595, brand_2023;Tesla;0.601.858.009;3165140546836
+ ;4567223;1595, brand_2023;Tesla;0.601.294.703;3165140107136
+ ;3755213;1593, brand_2023;TESLA;TMX001;700
+ ;3788611;1593, brand_2023;TESLA;TMX002;700
+ ;3788612;1593, brand_2023;TESLA;TMX003;700
+ ;3788616;1593, brand_2023;TESLA;TMX004;700
+ ;3788619;1593, brand_2023;TESLA;TMX005;700
+ ;4567133;1596, brand_2023;TESLA;TMY001;900090019002
+ ;4567173;1596, brand_2023;TESLA;TMY002;900090019002
+ ;4567174;1596, brand_2023;TESLA;TMY003;900090019002
+ ;4567175;1596, brand_2023;TESLA;TMY004;900090019002
+ ;4567177;1596, brand_2023;TESLA;TMY005;900090019002
+ ;4567165;1358, brand_2023;TESLA;TCT001;500
+ ;693923;1358, brand_2023;TESLA;TCT002;500
+ ;1979039;1358, brand_2023;TESLA;TCT003;500
+ ;1128762;1358, brand_2023;TESLA;TCT004;500
+  ;637227;1354, brand_2021;Belkin;F8E096;0722868137406
+ ;1101690;1354, brand_2021;Black & Decker;DC6PAKRA;028877574813
+ ;1101695;1354, brand_2021;Black & Decker;DC330K;028877448688
+ ;1128763;1354, brand_2021;StarTech.com;CV150K;065030783866
+ ;1221408;1354, brand_2021;Black & Decker;DW4892;028877551258
+ ;1221409;1354, brand_2021;Black & Decker;DW3232PT;028877568805
+ ;1221411;1354, brand_2021;Black & Decker;DW3106;028874031067
+ ;1221417;1354, brand_2021;Black & Decker;DW1782;028877476490
+ ;1249191;1354, brand_2021;Black & Decker;DW304PK;028877487748
+ ;1249198;1354, brand_2021;Black & Decker;D51321;028877431161
+ ;1249200;1354, brand_2021;Black & Decker;D51431;028877481647
+ ;1399957;1354, brand_2021;Black & Decker;VPX1301X;885911038089
+ ;1399958;1354, brand_2021;Black & Decker;VPX1201;885911029841
+ ;1399966;1354, brand_2021;Black & Decker;DCX4230;885911026598
+ ;1399984;1354, brand_2021;Black & Decker;DC742KA;028877590240
+ ;1399988;1354, brand_2021;Black & Decker;DC310K;028877529929
+ ;1408366;1354, brand_2021;Paladin Tools;4336;769328104134
+ ;1664617;1354, brand_2021;Victorinox;48997;046928489978
+ ;1666884;1354, brand_2021;Ultra;ULT31344;022769313443
+ ;1669869;1354, brand_2021;Milwaukee;48-00-5026;045242082995
+ ;1670353;1354, brand_2021;Milwaukee;48-00-5036;045242082704
+ ;1670354;1354, brand_2021;Milwaukee;48-00-5037;045242082711
+ ;1670355;1354, brand_2021;Milwaukee;48-00-5094;045242082780
+ ;1670427;1354, brand_2021;Milwaukee;48-00-5175;045242082612
+ ;1670428;1354, brand_2021;Milwaukee;48-00-5701;045242082476
+ ;1670429;1354, brand_2021;Milwaukee;48-00-5706;045242082483
+ ;1670430;1354, brand_2021;Milwaukee;48-00-5711;045242082490
+ ;1670435;1354, brand_2021;Milwaukee;48-39-0521;045242132263
+ ;1670436;1354, brand_2021;Milwaukee;48-39-0531;045242132362
+ ;1670448;1354, brand_2021;Milwaukee;48-00-4782;045242081097
+ ;1670449;1354, brand_2021;Milwaukee;48-00-4784;045242081110
+ ;1670548;1354, brand_2021;Milwaukee;48-00-5027;045242083022
+ ;1670549;1354, brand_2021;Milwaukee;48-00-5021;045242082988
+ ;1670597;1354, brand_2021;Milwaukee;48-00-4713;045242081080
+ ;1670599;1354, brand_2021;Milwaukee;48-00-1303;045242081769
+ ;1672248;1354, brand_2021;Makita;5620DWD;088381037884
+ ;1672249;1354, brand_2021;Makita;BHR240;088381075893
+ ;1672250;1354, brand_2021;Makita;BJR181;088381069816
+ ;1672251;1354, brand_2021;Makita;BSS610;088381069243
+ ;1677056;1354, brand_2021;Makita;HR1830F;088381072588
+ ;1677065;1354, brand_2021;Makita;3706K;088381041621
+ ;1677069;1354, brand_2021;Makita;4334DWD;088381035828
+ ;1677071;1354, brand_2021;Makita;BDF452HW;088381076784
+ ;1677074;1354, brand_2021;Makita;5094DWD;088381045049
+ ;1677076;1354, brand_2021;Makita;BTD142HW;088381082259
+ ;1677078;1354, brand_2021;Makita;HR2455X;088381050029
+ ;1677083;1354, brand_2021;Makita;714171A;088381935234
+ ;1677084;1354, brand_2021;Makita;DA312DWD;088381038393
+ ;1677089;1354, brand_2021;Makita;6935FDWDEX;088381065962
+ ;1677104;1354, brand_2021;Makita;JR3050T;088381061407
+ ;1677105;1354, brand_2021;Makita;JR3070CT;088381061322
+ ;1677107;1354, brand_2021;Makita;LCT300W;088381087810
+ ;1677109;1354, brand_2021;Makita;LXT407;088381086899
+ ;1677125;1354, brand_2021;Makita;TD020DSEW;088381076920
+ ;1677207;1354, brand_2021;Makita;JR180DWD;088381035538
+ ;1677787;1354, brand_2021;Makita;LXT202;088381070225
+ ;1678066;1354, brand_2021;Makita;BTD141;088381087742
+ ;1678256;1354, brand_2021;Paladin Tools;4302;769328109566
+ ;1678313;1354, brand_2021;Paladin Tools;3561;769328108248
+ ;2114093;1354, brand_2021;Black & Decker;KR110K-QS;5035048150856
+ ;2114099;1354, brand_2021;Black & Decker;PS122K-QW;5035048167830
+ ;2114103;1354, brand_2021;Black & Decker;KS600E;5035048172988
+ ;2114104;1354, brand_2021;Black & Decker;KR653K-QS;5035048161395
+ ;2114105;1354, brand_2021;Black & Decker;KR55CREKT;5035048158678
+ ;2114106;1354, brand_2021;Black & Decker;KG915K-QS;5035048119020
+ ;2114110;1354, brand_2021;Black & Decker;EPC18CABK;5035048206119
+ ;2114114;1354, brand_2021;Black & Decker;CP14LN-QW;5035048162811
+ ;2114122;1354, brand_2021;Black & Decker;BDL230S-XJ;5035048160763
+ ;2114124;1354, brand_2021;Black & Decker;AS36LN;5035048203224
+ ;2116266;1354, brand_2021;Black & Decker;KA270K;5035048147764
+ ;2116274;1354, brand_2021;Black & Decker;KA310;5035048203316
+ ;2116279;1354, brand_2021;Black & Decker;EPC12CABK;5035048894507
+ ;2116282;1354, brand_2021;Black & Decker;KD990KA;5035048191446
+ ;2116283;1354, brand_2021;Black & Decker;KA86;5035048175163
+ ;2121511;1354, brand_2021;CablesToGo;38015;
+ ;2217258;1354, brand_2021;Hama;00008772;4007249087720
+ ;2219181;1354, brand_2021;Hama;00039694;4007249396945
+ ;2221933;1354, brand_2021;Hama;00008754;4007249087546
+ ;2222485;1354, brand_2021;Hama;00008735;4007249087355
+ ;2613282;1354, brand_2021;CablesToGo;21600;pieces;
+ ;2682248;1354, brand_2021;Cables Unlimited;NOV41TAPE;
+ ;3092788;1354, brand_2021;CablesToGo;27375;
+ ;3318057;1354, brand_2021;Black & Decker;CD601;5035048123652
+ ;3536546;1354, brand_2021;Black & Decker;PP360LNH9;5035048258880
+ ;3591524;1354, brand_2021;Fiskars;VC00002466;
+ ;3591525;1354, brand_2021;Fiskars;VC00002468;078484124680
+ ;3591526;1354, brand_2021;Fiskars;VC00002470;
+ ;3591527;1354, brand_2021;Fiskars;VC00002477;078484124772
+ ;3591528;1354, brand_2021;Fiskars;VC00002494;078484124949
+ ;3591529;1354, brand_2021;Fiskars;VC00002803;078484128039
+ ;3591530;1354, brand_2021;Fiskars;VC0002333A;078484123331
+ ;3591753;1354, brand_2021;Black & Decker;HP148F4LK;5035048287521
+ ;3591754;1354, brand_2021;Black & Decker;HP188F4LK;5035048287545
+ ;3591758;1354, brand_2021;Black & Decker;KA89EK;5035048261088
+ ;3592865;1354, brand_2021;Black & Decker;KA191EK;5035048129845
+ ;3626881;1354, brand_2021;Kaiser;4062;4001072040624
+ ;3631964;1354, brand_2021;Fiskars;VC00002497;078484124970
+ ;3659943;1354, brand_2021;Black & Decker;EPC12CAQW;5035048206645
+ ;3755201;1354, brand_2021;Bosch;0603941203;3165140216739
+ ;3755204;1354, brand_2021;Bosch;0603913403;3165140331968
+ ;3755205;1354, brand_2021;Bosch;0603944655;3165140278201
+ ;3755207;1354, brand_2021;Bosch;0603959200;3165140450973
+ ;3755210;1354, brand_2021;Bosch;0603956T09;3165140470513
+ ;3755211;1354, brand_2021;Bosch;0603954000;4306236039545
+ ;3755217;1354, brand_2021;Bosch;060395550F;3165140470384
+ ;3755218;1354, brand_2021;Bosch;0603955401;3165140377171
+ ;3755219;1354, brand_2021;Bosch;603944669;
+ ;3755225;1354, brand_2021;Bosch;0603944A60;3165140423298
+ ;3756505;1354, brand_2021;Bosch;0603956T21;3165140407212
+ ;3756515;1354, brand_2021;Bosch;603952020;3165140471787
+ ;3758751;1354, brand_2021;Bosch;0603956S01;4306236612021
+ ;3774127;1354, brand_2021;Bosch;0603954020;
+ ;3774128;1354, brand_2021;Bosch;060395550D;3165140470360
+ ;3774129;1354, brand_2021;Bosch;060395540D;3165140470421
+ ;3774131;1354, brand_2021;Bosch;0603956T22;3165140407229
+ ;3774134;1354, brand_2021;Bosch;0603943508;3165140299534
+ ;3774135;1354, brand_2021;Bosch;0603944508;3165140278348
+ ;3774136;1354, brand_2021;Bosch;0603955321;3165140377300
+ ;3778914;1354, brand_2021;Bosch;0603941503;3165140216937
+ ;3778915;1354, brand_2021;Bosch;0603943555;3165140299503
+ ;3778917;1354, brand_2021;Bosch;0603955520;3165140377072
+ ;3778919;1354, brand_2021;Bosch;0603951J20;3165140404747
+ ;3778921;1354, brand_2021;Bosch;0603955501;3165140377065
+ ;3778922;1354, brand_2021;Bosch;0603951J01;3165140404730
+ ;3778923;1354, brand_2021;Bosch;060395540B;3165140470407
+ ;3778926;1354, brand_2021;Bosch;0603951G20;3165140404860
+ ;3778927;1354, brand_2021;Bosch;0603956T28;3165140530316
+ ;3778928;1354, brand_2021;Bosch;0603951G01;3165140404853
+ ;3780171;1354, brand_2021;Bosch;0603951E01;
+ ;3782130;1354, brand_2021;Black & Decker;KC9036;2000001559710
+ ;3788614;1354, brand_2021;Einhell;45.133.40;4006825541236
+ ;3788618;1354, brand_2021;Einhell;45.132.80;4006825537505
+ ;3791317;1354, brand_2021;Einhell;45.132.60;4006825537185
+ ;3791322;1354, brand_2021;Einhell;45.133.50;4006825542271
+ ;3793191;1354, brand_2021;Black & Decker;KC9039;5035048106198
+ ;3793682;1354, brand_2021;Einhell;20.483.00;4006825202281
+ ;3793683;1354, brand_2021;Einhell;45.106.70;4006825509434
+ ;3793687;1354, brand_2021;Einhell;45.131.01;4006825511451
+ ;3793693;1354, brand_2021;Einhell;45.131.00;4006825511444
+ ;3793695;1354, brand_2021;Black & Decker;PP360-QW;5035048180587
+ ;3793702;1354, brand_2021;Einhell;45.106.40;4006825505085
+ ;3793707;1354, brand_2021;Einhell;45.131.10;4006825511468
+ ;3793710;1354, brand_2021;Einhell;45.106.80;4006825529043
+ ;3793711;1354, brand_2021;Einhell;42.571.11;4006825544671
+ ;3794506;1354, brand_2021;Black & Decker;PS142KB-QW;4306232011309
+ ;3794509;1354, brand_2021;Black & Decker;PS122KB-QW;5035048174968
+ ;3794514;1354, brand_2021;Black & Decker;PS182KB-QW;5035048175040
+ ;3794524;1354, brand_2021;Black & Decker;PP360;4306231111109
+ ;3794560;1354, brand_2021;Black & Decker;KC360LN;5035048168325
+ ;3794561;1354, brand_2021;Black & Decker;CP12K;2000001776254
+ ;3794596;1354, brand_2021;Black & Decker;KC360H;5035048949771
+ ;3794597;1354, brand_2021;Black & Decker;CP14KB;5035048149782
+ ;3794607;1354, brand_2021;Black & Decker;KC9039KA;5035048949764
+ ;3794609;1354, brand_2021;Black & Decker;KC9024ST;5011402169283
+ ;3794612;1354, brand_2021;Black & Decker;KC1036B;5035048949740
+ ;3794615;1354, brand_2021;Black & Decker;CP122K;5035048149720
+ ;3794619;1354, brand_2021;Einhell;45.133.00;4006825538250
+ ;3794621;1354, brand_2021;Black & Decker;KC9024BA;5011402169306
+ ;3794631;1354, brand_2021;Black & Decker;EPC96CA;5035048206843
+ ;3794633;1354, brand_2021;Black & Decker;HP146F3K;4306236241580
+ ;3794635;1354, brand_2021;Black & Decker;XTC183BK;5035048155073
+ ;3794640;1354, brand_2021;Black & Decker;EPC14CA-QW;5035048206317
+ ;3795253;1354, brand_2021;Black & Decker;A7073;
+ ;3803058;1354, brand_2021;Ednet;64071;4040587640714
+ ;3844571;1354, brand_2021;Einhell;45.129.62;
+ ;3857331;1354, brand_2021;Bosch;F0152348AA;4306236240279
+ ;3857731;1354, brand_2021;Einhell;45.133.60;
+ ;3857732;1354, brand_2021;Makita;6270DWAE;
+ ;3857733;1354, brand_2021;Makita;DF030DWE;
+ ;3857734;1354, brand_2021;Makita;6271DWAE;
+ ;3857735;1354, brand_2021;Makita;TD020DSE;
+ ;3857736;1354, brand_2021;Einhell;45.131.61;
+ ;3857738;1354, brand_2021;Einhell;45.131.62;
+ ;3857744;1354, brand_2021;Einhell;42.597.50;4006825505924
+ ;3857747;1354, brand_2021;Einhell;45.129.06;5996093699441
+ ;3857750;1354, brand_2021;Einhell;45.131.40;4006825512977
+ ;3857757;1354, brand_2021;Einhell;44.720.80;4006825515732
+ ;3864520;1354, brand_2021;Black & Decker;HP126F2K-QW;5035048106303
+ ;3864534;1354, brand_2021;Black & Decker;HP126F2B-QW;
+ ;3864539;1354, brand_2021;Black & Decker;HP126F3K;4306236241252
+ ;3864748;1354, brand_2021;Intronics;Q92340;8716065154962
+ ;3864770;1354, brand_2021;Intronics;MM9090;
+ ;3865361;1354, brand_2021;Intronics;FHT501;8716065133745
+ ;3865362;1354, brand_2021;Intronics;TD070;8716065133721
+ ;3865614;1354, brand_2021;Intronics;SK9010;8716065207507
+ ;3865725;1354, brand_2021;Intronics;SK9011;8716065207514
+ ;3879434;1354, brand_2021;Einhell;42.584.45;
+ ;3879435;1354, brand_2021;Einhell;42.582.14;4006825543278
+ ;3879436;1354, brand_2021;Bosch;0603393200;
+ ;3879437;1354, brand_2021;Einhell;42.584.30;4006825537574
+ ;3879438;1354, brand_2021;Einhell;42.584.40;4006825537581
+ ;3879440;1354, brand_2021;Einhell;42.597.80;4006825538274
+ ;3879442;1354, brand_2021;Einhell;42.597.90;4006825538281
+ ;3879443;1354, brand_2021;Einhell;42.598.00;4006825538298
+ ;3879444;1354, brand_2021;Einhell;42.597.70;4006825537543
+ ;3879445;1354, brand_2021;Einhell;42.597.40;4006825537192
+ ;3879446;1354, brand_2021;Bosch;0603393100;3165140430258
+ ;3879447;1354, brand_2021;Bosch;0603393000;
+ ;3879448;1354, brand_2021;Bosch;0603344321;3165140344388
+ ;3879450;1354, brand_2021;Bosch;0603393020;3165140459969
+ ;3880499;1354, brand_2021;Bosch;0603393220;3165140460002
+ ;3880500;1354, brand_2021;Bosch;0603358760;3165140235624
+ ;3880501;1354, brand_2021;Bosch;0603344301;
+ ;3880502;1354, brand_2021;Bosch;0603344323;
+ ;3880504;1354, brand_2021;Einhell;42.598.10;4006825538304
+ ;3880507;1354, brand_2021;Bosch;0603952020;
+ ;3880508;1354, brand_2021;Bosch;0603394220;3165140461733
+ ;3880510;1354, brand_2021;Bosch;0603336308;3165140467469
+ ;3880511;1354, brand_2021;Bosch;0603394200;3165140435147
+ ;3880513;1354, brand_2021;Bosch;0603952000;
+ ;3880516;1354, brand_2021;Einhell;4472071;4006825507188
+ ;3880517;1354, brand_2021;Einhell;4258445;4006825546231
+ ;3880519;1354, brand_2021;Einhell;4258410;4006825510089
+ ;3880520;1354, brand_2021;Einhell;4258306;4006825543285
+ ;3880525;1354, brand_2021;Einhell;4330940;4006825538526
+ ;3880527;1354, brand_2021;Einhell;4258310;4006825422399
+ ;3880528;1354, brand_2021;Einhell;4258320;4006825422894
+ ;3880530;1354, brand_2021;Einhell;4258400;4006825509700
+ ;3880590;1354, brand_2021;Einhell;4258213;4006825530230
+ ;3880591;1354, brand_2021;Einhell;4258446;4006825550979
+ ;3880595;1354, brand_2021;Einhell;4258210;4006825509717
+ ;3880596;1354, brand_2021;Einhell;4258214;
+ ;3880598;1354, brand_2021;Einhell;4258430;
+ ;3881014;1354, brand_2021;Black & Decker;CD12CE;
+ ;3881016;1354, brand_2021;Einhell;44.305.70;4006825537291
+ ;3881017;1354, brand_2021;Einhell;44.305.60;4006825537284
+ ;3881018;1354, brand_2021;Einhell;44.305.50;
+ ;3881020;1354, brand_2021;Einhell;44.306.30;
+ ;3881021;1354, brand_2021;Einhell;44.306.10;
+ ;3881022;1354, brand_2021;Einhell;44.305.90;
+ ;3881023;1354, brand_2021;Einhell;44.305.80;
+ ;3881024;1354, brand_2021;Einhell;45.133.10;4006825538267
+ ;3881025;1354, brand_2021;Einhell;45.133.20;4006825541205
+ ;3881026;1354, brand_2021;Skil;F0152972AC;4306232730842
+ ;3881027;1354, brand_2021;Einhell;45.133.85;4006825559057
+ ;3881028;1354, brand_2021;Einhell;45.133.80;
+ ;3881029;1354, brand_2021;Einhell;45.133.25;
+ ;3881030;1354, brand_2021;Einhell;45.133.05;
+ ;3881031;1354, brand_2021;Skil;F0152301AT;8710364033850
+ ;3881032;1354, brand_2021;Einhell;45.133.15;
+ ;3881033;1354, brand_2021;Einhell;45.133.30;
+ ;3881034;1354, brand_2021;Einhell;45.133.45;
+ ;3881035;1354, brand_2021;Einhell;45.134.40;
+ ;3881036;1354, brand_2021;Skil;F0152401AA;8710364025541
+ ;3881037;1354, brand_2021;Skil;F0152006AB;8710364040520
+ ;3881038;1354, brand_2021;Skil;F0152007AB;8710364040544
+ ;3881039;1354, brand_2021;Einhell;45.134.50;
+ ;3881040;1354, brand_2021;Einhell;45.134.60;
+ ;3881041;1354, brand_2021;Einhell;45.132.70;
+ ;3881042;1354, brand_2021;Skil;F0152007BL;8710364042258
+ ;3881043;1354, brand_2021;Skil;F0152005AA;8710364041138
+ ;3881044;1354, brand_2021;Skil;F0152006AN;8710364044511
+ ;3881050;1354, brand_2021;Skil;F0152201AA;8710364025497
+ ;3881051;1354, brand_2021;Skil;F0152301AA;4306236559982
+ ;3881057;1354, brand_2021;Skil;F0152003AA;8710364028573
+ ;3881058;1354, brand_2021;Skil;F0152004AA;8710364030682
+ ;3881059;1354, brand_2021;Skil;F0152004AB;8710364030699
+ ;3881060;1354, brand_2021;Skil;F0152027AA;8710364042487
+ ;3881061;1354, brand_2021;Skil;F0152311AB;8710364037414
+ ;3881062;1354, brand_2021;Skil;F0152411AA;8710364037438
+ ;3881063;1354, brand_2021;Skil;F0152302AC;8710364024452
+ ;3881064;1354, brand_2021;Skil;F0152302BL;8710364035892
+ ;3881065;1354, brand_2021;Skil;F0152302AF;8710364026463
+ ;3881066;1354, brand_2021;Skil;F0152497AB;8710364027347
+ ;3881067;1354, brand_2021;Skil;F0152497BL;8710364036196
+ ;3881070;1354, brand_2021;Skil;F0152401AC;8710364026432
+ ;3881071;1354, brand_2021;Skil;F0152972AA;8710364027972
+ ;3881072;1354, brand_2021;Skil;F0152702AA;8710364023684
+ ;3881074;1354, brand_2021;Skil;F0152436AC;8710364044429
+ ;3881075;1354, brand_2021;Skil;F0156222AA;8710364047710
+ ;3881076;1354, brand_2021;Skil;F0152236AA;8710364023882
+ ;3881077;1354, brand_2021;Skil;F0152495D1;8710364024285
+ ;3881078;1354, brand_2021;Skil;F0152402AA;8710364023868
+ ;3881338;1354, brand_2021;Skil;F0152148AA;8710364036325
+ ;3881339;1354, brand_2021;Skil;F0152248AA;8710364023905
+ ;3881380;1354, brand_2021;Black & Decker;KR653K;
+ ;3881381;1354, brand_2021;Black & Decker;KR753K;5035048161821
+ ;3881382;1354, brand_2021;Black & Decker;KR603K;5035048161005
+ ;3881383;1354, brand_2021;Black & Decker;KD985KA;4306232267379
+ ;3881384;1354, brand_2021;Black & Decker;KD975KA;5035048196830
+ ;3881389;1354, brand_2021;Skil;F0152026AA;8710364042463
+ ;3881396;1354, brand_2021;Black & Decker;HP146F2K;5035048106389
+ ;3881397;1354, brand_2021;Skil;F0152348PR;4305670083503
+ ;3881412;1354, brand_2021;Skil;F0152295A1;8710364019892
+ ;3881414;1354, brand_2021;Skil;F0152321AA;8710364047604
+ ;3881417;1354, brand_2021;Skil;F0152490A1;8710364013098
+ ;3881419;1354, brand_2021;Skil;F0152499A1;8710364021222
+ ;3881422;1354, brand_2021;Skil;F0152590F1;8710364018901
+ ;3881424;1354, brand_2021;Skil;F0152599A1;8710364021253
+ ;3881427;1354, brand_2021;Skil;F0156002AA;8710364026111
+ ;3883690;1354, brand_2021;Skil;F0156260AA;8710364037216
+ ;3883692;1354, brand_2021;Skil;F0156280AA;4306236560025
+ ;3883695;1354, brand_2021;Skil;F0156386PR;4305670083428
+ ;3883696;1354, brand_2021;Skil;F0156390AA;8710364024438
+ ;3884593;1354, brand_2021;Black & Decker;CD18CA;
+ ;3884599;1354, brand_2021;Black & Decker;KA400;5035048202784
+ ;3884600;1354, brand_2021;Black & Decker;KA300;
+ ;3884601;1354, brand_2021;Skil;F0156565AA;4306230156569
+ ;3884632;1354, brand_2021;Skil;F0156092AA;4306236272621
+ ;3884633;1354, brand_2021;Skil;F0156222AB;8710364047727
+ ;3884634;1354, brand_2021;Skil;F0156360A1;8710364018185
+ ;3884636;1354, brand_2021;Skil;F0156365AA;8710364024353
+ ;3884637;1354, brand_2021;Skil;F0156453C2;8710364018772
+ ;3884638;1354, brand_2021;Skil;F0156470E2;8710364009787
+ ;3884640;1354, brand_2021;Skil;F0156490S1;8710364020270
+ ;3884642;1354, brand_2021;Skil;F0156692AA;8710364024827
+ ;3884645;1354, brand_2021;Skil;F0156785AA;8710364033379
+ ;3884646;1354, brand_2021;Skil;F0156790AD;8710364033430
+ ;3887119;1354, brand_2021;Hitachi;10310;
+ ;3887120;1354, brand_2021;Hitachi;10330;
+ ;3887121;1354, brand_2021;Hitachi;10350;
+ ;3887122;1354, brand_2021;Hitachi;DH-24PC3;
+ ;3887123;1354, brand_2021;Hitachi;10415;
+ ;3887124;1354, brand_2021;Hitachi;10530;
+ ;3887125;1354, brand_2021;Hitachi;10775;
+ ;3887126;1354, brand_2021;Hitachi;10035;
+ ;3887127;1354, brand_2021;Hitachi;10580;
+ ;3887128;1354, brand_2021;Hitachi;10810;
+ ;3887129;1354, brand_2021;Hitachi;10450;
+ ;3887130;1354, brand_2021;Hitachi;10410;
+ ;3887131;1354, brand_2021;Hitachi;10355;
+ ;3887475;1354, brand_2021;Skil;F0156383AA;8710364033201
+ ;3887477;1354, brand_2021;Skil;F0156270AA;8710364033119
+ ;3887479;1354, brand_2021;Skil;F0156365AB;8710364024360
+ ;3887482;1354, brand_2021;Skil;F0156480AA;8710364034109
+ ;3887483;1354, brand_2021;Skil;F0156485AD;8710364034123
+ ;3887487;1354, brand_2021;Skil;F0156780AD;8710364033348
+ ;3887491;1354, brand_2021;Skil;F0151610AA;8710364037377
+ ;3887493;1354, brand_2021;Skil;F0151735AA;8710364031573
+ ;3887499;1354, brand_2021;Skil;F0151740AA;8710364030620
+ ;3887504;1354, brand_2021;Skil;F0151745A1;8710364016754
+ ;3887505;1354, brand_2021;Skil;F0151750A1;8710364009145
+ ;3887506;1354, brand_2021;Skil;F0151755AA;8710364023998
+ ;3887511;1354, brand_2021;Skil;F0151760AB;8710364024964
+ ;3887512;1354, brand_2021;Skil;F0151760AC;8710364024025
+ ;3887513;1354, brand_2021;Skil;F0151765AC;8710364031214
+ ;3887514;1354, brand_2021;Skil;F0151758AA;8710364035236
+ ;3887523;1354, brand_2021;Skil;F0151703AA;8710364030767
+ ;3887524;1354, brand_2021;Skil;F0151415AC;8710364028559
+ ;3887529;1354, brand_2021;Skil;F0156900AD;8710364039500
+ ;3887530;1354, brand_2021;Skil;F0159004AA;8710364030828
+ ;3915890;1354, brand_2021;Black & Decker;KD960KC;
+ ;3916437;1354, brand_2021;Hitachi;W6V4;4966376124046
+ ;3917378;1354, brand_2021;Koh-I-Noor;M33218;
+ ;3917448;1354, brand_2021;Koh-I-Noor;D63/5;8032173008127
+ ;3917449;1354, brand_2021;Koh-I-Noor;D59/3;8032173008097
+ ;3917455;1354, brand_2021;Koh-I-Noor;D07/20;8009134018907
+ ;3919465;1354, brand_2021;Koh-I-Noor;D14/50;8009134055650
+ ;3920606;1354, brand_2021;Hitachi;DB3DL;4966376147533
+ ;3920607;1354, brand_2021;Hitachi;DS14DVF3;4966376129041
+ ;3920608;1354, brand_2021;Hitachi;DS12DVF3;4966376128976
+ ;3920613;1354, brand_2021;Hitachi;DB10DL;4966376161072
+ ;3920614;1354, brand_2021;Hitachi;DS14DMR;4966376123117
+ ;3921090;1354, brand_2021;Bosch;0603337763;3165140149952
+ ;3921093;1354, brand_2021;Bosch;0603397401;3165140365055
+ ;3921095;1354, brand_2021;Hitachi;W6VA4;4966376124039
+ ;3921097;1354, brand_2021;Bosch;0603172500;3165140404044
+ ;3921099;1354, brand_2021;Hitachi;WH12DAF;4966376114351
+ ;3921100;1354, brand_2021;Hitachi;WH12DAF2;4966376138852
+ ;3921101;1354, brand_2021;Bosch;0603172700;3165140404082
+ ;3922855;1354, brand_2021;Bosch;0603172800;3165140404129
+ ;3922856;1354, brand_2021;Bosch;0603344303;3165140344470
+ ;3923098;1354, brand_2021;Bosch;0603385760;3165140328647
+ ;3923110;1354, brand_2021;Bosch;0603126000;3165140451116
+ ;3923111;1354, brand_2021;Bosch;0603126300;3165140451260
+ ;3942767;1354, brand_2021;Medisana;85015;4015588850158
+ ;3942803;1354, brand_2021;Medisana;85006;4015588850066
+;3942823;1354, brand_2021;Medisana;85007;4015588850073
+;3942829;1354, brand_2021;Medisana;85010;4015588850103
+;3942838;1354, brand_2021;Medisana;85011;4015588850110
+;3942841;1354, brand_2021;Medisana;85004;4015588850042
+;3942849;1354, brand_2021;Medisana;85003;4015588850035
+;3942853;1354, brand_2021;Medisana;85005;4015588850059
+;4019849;1354, brand_2021;Black & Decker;KR85KQS;
+;4491784;1354, brand_2021;Intronics;BCTOOLS;8716065251944
+;4567130;1354, brand_2021;Bosch;0.603.100.001;3165140337250
+;4567131;1354, brand_2021;Bosch;0.603.205.000;3165140455121
+;4567134;1354, brand_2021;Bosch;0.603.398.000;
+;4567162;1354, brand_2021;Bosch;0.601.58E.000;3165140402378
+;4567163;1354, brand_2021;Bosch;0.601.584.660;3165140076944
+;4567167;1354, brand_2021;Bosch;0.601.993.H03;3165140471091
+;4567176;1354, brand_2021;Bosch;0.601.64E.003;3165140364140
+;4567179;1354, brand_2021;Bosch;0.601.670.000;3165140418799
+;4567183;1354, brand_2021;Bosch;0.611.321.000;3165140461320
+;4567184;1354, brand_2021;Bosch;0.611.264.000;3165140461214
+;4567185;1354, brand_2021;Bosch;0.601.623.000;3165140469678
+;4567186;1354, brand_2021;Bosch;0.601.19C.500;3165140505604
+;4567187;1354, brand_2021;Bosch;0.611.258.301;3165140344159
+;4567188;1354, brand_2021;Bosch;0.601.9A2.000;3165140487870
+;4567190;1354, brand_2021;Bosch;0.601.9A4.407;3165140564038
+;4567191;1354, brand_2021;Bosch;0.601.9A4.306;3165140564052
+;4567192;1354, brand_2021;Bosch;0.601.995.J05;3165140478410
+;4567193;1354, brand_2021;Bosch;0.601.168.560;3165140064583
+;4567194;1354, brand_2021;Bosch;0.601.217.100;3165140371902
+;4567196;1354, brand_2021;Bosch;0.601.868.102;3165140534727
+;4598185;1354, brand_2021;Wentronic;77117;4040849771170
+;4600658;1354, brand_2021;Wentronic;77118;4040849771187
+;4763600;1354, brand_2021;Hama;00041528;4007249415288
+;4763682;1354, brand_2021;Hama;00021610;4007249216106
+;4763692;1354, brand_2021;Hama;00021611;4007249216113
+;4763696;1354, brand_2021;Hama;00041529;
+;4763915;1354, brand_2021;Hama;00047516;4007249475169
+;5874577;1354, brand_2021;Lindy;66025;
+;5888798;1354, brand_2021;HIS;HGTK01-SB;
+;6100520;1354, brand_2021;Siemens;MS46000;4242003304143
+;6100521;1354, brand_2021;Siemens;MS75002;4242003453353
+ 
+ 
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+ ;54632;Hitch Rack (Model - S);Hitch Rack for Tesla Model - S;Conveniently stow your skis and snowboards on the exterior of your Model S. The Model S Ski/Snowboard Carrier is easily assembled and allows for lockable storage with soft rubber coated arms that secure equipment without the risk of scratching ski or snowboard surfaces.
+ ;2116275;Weather Int Liners (Model - S);Weather Int Liners For Tesla Model - S;Model S All-Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model S All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the footwell carpet and easy cleanup. Created with an exclusive pattern by Tesla Design Studio, these liners are custom-made using the latest digital measurements for Model S.
+ ;2116277;Key Fob;Key Fob for Tesla Model - S;Locking and unlocking your Tesla vehicle has never been easier. Keep your key fob in your pocket and simply pull on the door handle for easy entry. Same with the trunk. Your key fob is automatically enabled when you pair it with your vehicle.
+ ;3715400;Snow Chain;Snow Chain Tool For Tesla Model - S;The König K-Summit XL K55 Max Snow Chains provide excellent traction and durability in snowy conditions. With no complex attachments, the newly upgraded design simply requires one fixing point on the outer side of the drive wheels. The fitting system has been pre-configured for Model S 19” wheels.
+ ;3755212;USB Drive;USB Drive For Tesla Model - S;SLC USB stands for Single-Level Cell, which is normally used in industrial grade applications. SLC is >100 times more reliable than conventional TLC NAND USB flash drives which is the perfect choice for recording Tesla footages
+ ;4567180;Tesla Model 3 Car Cover ;Shield your Tesla from the harshest of elements with this Outdoor Car Cover..;ACCECORIES (single cover)
+ ;4567181;Tesla Model 3 Soft Cooler ;For best travel.;ACCECORIES (single piece)
+ ;4567182;Back Pillow and Seat Cushion ;For best travel.;ACCECORIES (two cushions)
+ ;4567189;Model 3/Y Automatic Garage Opener;Connect your Model 3 or Model Y to your garage door, gate system and other radio-frequency (RF) controlled devices with the fully integrated HomeLink® module. Your garage will automatically open or close when a connected vehicle arrives or leaves. ;ACCECORIES (two single piece)
+ ;4567223;Tesla Model 3 Rear Trunk Spoiler - Matte Carbon Print;Improve high-speed stability by adding the Model 3 Carbon Fiber Spoiler to your trunk lid. Made from lightweight, cross-woven carbon fiber with a matte epoxy finish.;ACCECORIES (single piece)
+ ;3755213;Hitch Rack (Model - X);<b>The Model X Hitch Rack is a premium tilt-down hitch rack that comes fully assembled out of the box. Installation is a breeze with the AutoPin™ and locking SpeedKnob. New ZipStrips make loading and securing bikes simpler than ever. Padded arms cradle your bike's frame and can be folded down when not in use.</b><br/><br/> <b>Features</b><br/>- Fits both 1.25" and 2" hitch receivers <br/>- Carries up to 4 bikes <br/>- Overall arm width - 12.25" <br/>- Overall height - 36.5" <br/>- Weight - 40lbs <br/><br/><b>Includes </b><br/>- 1x hitch rack <br/>- 12x zip strips<br/>;Tesla Model X Hitch Rack 
+ ;3788611;Snow Chain (Model - X);<b>The König K-Summit K67 Snow Chains provide excellent traction and durability in snowy conditions. With no complex attachments, the newly upgraded design simply requires one fixing point on the outer side of the drive wheels and is pre-configured for your Model X wheel size.</b><br/><br/> <b>Features</b><br/>- 0mm inside the wheel <br/>- Innovative ratchet system <br/>- Tread chain with alternating injection-molded plastic plates with hard metal studs and steel chain <br/>- Welded bars for better grip and performance <br/>- Foldable arms for easy storage <br/><br/><b>Includes: </b><br/>- 1x pair of chains for two wheels <br/>- 1x nylon protective bag <br/>;Tesla Model X Snow Chains 
+ ;3788612;Key Fob (Model - X);<b>Locking and unlocking your Tesla vehicle has never been easier. Keep your key fob in your pocket and simply pull on the door handle for easy entry. Same with the trunk. Your key fob is automatically enabled when you pair it with your vehicle.</b><br/><br/> Includes </b><br/>- 1x key fob <br/>- 1x coin cell battery <br/>;Tesla Model X Key Fob 
+ ;3788616;USB Drive (Model - X);<b>Store your Sentry Mode and Dashcam footage with the USB Drive - 128 GB. Protect against theft, break-ins and threats when your car is left unattended with up to 128 GB of video storage capacity. Insert the pre-formatted USB Drive into the USB-A port inside the center console or the rear of the glove box before enabling Sentry Mode for a unique layer of safety and security you can take anywhere.</b><br/><br/> <b>;Tesla Model X USB Drive
+ ;3788619;Weather Interior Liners(Model - X);<b>Model X All-Weather Interior Liners are made from thermoplastic elastomer material for ultimate protection and spatial coverage. Unlike traditional floor mats, Model X All-Weather Interior Liners are comprised of vertical walls that ensure maximum protection to the interior carpet and easy cleanup.100% recyclable and free of cadmium, lead, latex and PVC.</b><br/><br/> <b>Six Seats Includes</b><br/>- 1x first row all-weather liner [driver] <br/>- 1x first row all-weather liner [passenger] <br/>- 1x second row all-weather liner <br/>- 1x third row all-weather liner <br/>;Tesla Model X  All-Weather Interior Liners
+ ;4567133;Weather Interior Liners;- Weather Interior Liners are made from a thermoplastic elastomer material with a strong rigid core for extreme-duty protection and spatial coverage. Unlike traditional floor mats, Model Y All-Weather Interior Liners are comprised of vertical walls that offer maximum protection to the foot-well carpet and easy cleanup. Exclusive grid pattern crafted by Tesla Design Studio and custom-made using the latest digital measurements for Model Y.100% recyclable and free of cadmium, lead, latex and PVC.;Interior Liners
+ ;4567173;Glass Roof Sunshade;- Constructed of lightweight mesh fabric with a collapsible rigid frame, the Model Y Glass Roof Sunshade blocks 66% of luminous transmittance without compromising rearward visibility. Easily removable, the sunshade is installed onto the interior of the glass roof with provided clips. When removed, the shade collapses and can be stored in the included zippered pouch;Glass Roof Sunshade
+ ;4567174;Snow Chains;- The König XG-12 Pro 252 snow chain provides superior traction, driving comfort and performance in snowy conditions. Featuring easy installation, the patented micro-regulation system and pattern design with double traction plates offer perfect chain self-tensioning and excellent traction. Approved for Tesla-manufactured 19” and 20” wheels and Tesla-approved 19” and 20” tires for Model Y.;Snow Chains
+ ;4567177;Trunk Storage Bins;- Model Y Trunk Storage Bins help keep your trunk organized and clean. The waterproof rubber bins slip into the left and right trunk cavities allowing you to stow shoes, tools, gear and other items that might otherwise dirty your trunk's interior. The matching carpeted lids blend seamlessly into the trunk for expanded floor space and cargo area.;Trunk Storage Bins
+ ;4567175;Solid State Drive;-Store everything. From Tesla Arcade games to Dashcam footage, our 1 TB Solid State Drive (SSD) allows you to save all your vehicle data in one place. This automotive-grade external SSD is designed for durability withstanding extreme cabin temperatures, vehicle shocks and vibrations. With an extended lifespan compared to similar storage devices and read/write speeds optimized for gaming, the Solid State Drive supports Steam gaming.;Solid State Drive
+ ;4567165; Enhanced Auto pilot version CT ; While driving on the highway, Automatic Lane Change will position your car in the optimal lane to prepare for merges and exits while overtaking slow cars;Tesla Cyber Truck Enhanced Auto pilot version CT
+ ;1979039;Center Console USB hub version CT ; With Wider Compatibility And Multiple Performances, You Do Not Need To Worry;Tesla Cyber Truck Center Console USB hub version CT
+ ;693923;Arachnid Wheels version CT ;All-Season tires are designed to work across the widest range of conditions and offer good traction and comfort in moderate climates;Tesla Cyber Truck Arachnid Wheels version CT 
+ ;1128762;Yoke Steering version CT;With 2200 x 1300 resolution, true colors and exceptional responsiveness, an adjustable 17” display tilts left or right for gaming, movies and more;Tesla Cyber Truck Yoke Steering version CT 

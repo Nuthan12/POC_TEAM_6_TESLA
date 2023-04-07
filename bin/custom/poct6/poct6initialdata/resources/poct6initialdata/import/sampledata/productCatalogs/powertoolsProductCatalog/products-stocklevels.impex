@@ -1,0 +1,96 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products Stock Levels and Warehouses
+
+# Macros / Replacement Parameter definitions
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$vendor=powertools
+
+
+INSERT_UPDATE Vendor;code[unique=true]
+#;$vendor
+
+INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
+;pw_warehouse_s;Powertools Warehouse South
+;pw_warehouse_e;Powertools Warehouse East
+;pw_warehouse_w;Powertools Warehouse West
+;pw_warehouse_n;Powertools Warehouse North
+
+INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+;3755213;pw_warehouse_s;55;notSpecified
+;3755213;pw_warehouse_e;55;notSpecified
+;3755213;pw_warehouse_n;55;notSpecified
+;3755213;pw_warehouse_w;55;notSpecified
+;3788611;pw_warehouse_s;55;notSpecified
+;3788611;pw_warehouse_e;55;notSpecified
+;3788611;pw_warehouse_n;55;notSpecified
+;3788611;pw_warehouse_w;55;notSpecified
+;3788612;pw_warehouse_s;55;notSpecified
+;3788612;pw_warehouse_e;55;notSpecified
+;3788612;pw_warehouse_n;55;notSpecified
+;3788612;pw_warehouse_w;55;notSpecified
+;3788616;pw_warehouse_s;55;notSpecified
+;3788616;pw_warehouse_e;55;notSpecified
+;3788616;pw_warehouse_n;55;notSpecified
+;3788616;pw_warehouse_w;55;notSpecified
+;3788619;pw_warehouse_s;55;notSpecified
+;3788619;pw_warehouse_e;55;notSpecified
+;3788619;pw_warehouse_n;55;notSpecified
+;3788619;pw_warehouse_w;55;notSpecified
+;4567165;pw_warehouse_s;65;notSpecified
+;4567165;pw_warehouse_e;65;notSpecified
+;4567165;pw_warehouse_n;65;notSpecified
+;4567165;pw_warehouse_w;65;notSpecified
+;1979039;pw_warehouse_s;65;notSpecified
+;1979039;pw_warehouse_e;65;notSpecified
+;1979039;pw_warehouse_n;65;notSpecified
+;1979039;pw_warehouse_w;65;notSpecified
+;693923;pw_warehouse_s;65;notSpecified
+;693923;pw_warehouse_e;65;notSpecified
+;693923;pw_warehouse_n;65;notSpecified
+;693923;pw_warehouse_w;65;notSpecified
+;1128762;pw_warehouse_s;65;notSpecified
+;1128762;pw_warehouse_e;65;notSpecified
+;1128762;pw_warehouse_n;65;notSpecified
+;1128762;pw_warehouse_w;65;notSpecified
+
+UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
+;3755213;3755213:pw_warehouse_s
+;3755213;3755213:pw_warehouse_e
+;3755213;3755213:pw_warehouse_n
+;3755213;3755213:pw_warehouse_w
+;3788611;3788611:pw_warehouse_s
+;3788611;3788611:pw_warehouse_e
+;3788611;3788611:pw_warehouse_n
+;3788611;3788611:pw_warehouse_w
+;3788612;3788612:pw_warehouse_s
+;3788612;3788612:pw_warehouse_e
+;3788612;3788612:pw_warehouse_n
+;3788612;3788612:pw_warehouse_w
+;3788616;3788616:pw_warehouse_s
+;3788616;3788616:pw_warehouse_e
+;3788616;3788616:pw_warehouse_n
+;3788616;3788616:pw_warehouse_w
+;3788619;3788619:pw_warehouse_s
+;3788619;3788619:pw_warehouse_e
+;3788619;3788619:pw_warehouse_n
+;3788619;3788619:pw_warehouse_w
+;4567165;4567165:pw_warehouse_s
+;4567165;4567165:pw_warehouse_e
+;4567165;4567165:pw_warehouse_n
+;4567165;4567165:pw_warehouse_w
+;1979039;1979039:pw_warehouse_s
+;1979039;1979039:pw_warehouse_e
+;1979039;1979039:pw_warehouse_n
+;1979039;1979039:pw_warehouse_w
+;693923;693923:pw_warehouse_s
+;693923;693923:pw_warehouse_e
+;693923;693923:pw_warehouse_n
+;693923;693923:pw_warehouse_w
+;1128762;1128762:pw_warehouse_s
+;1128762;1128762:pw_warehouse_e
+;1128762;1128762:pw_warehouse_n
+;1128762;1128762:pw_warehouse_w

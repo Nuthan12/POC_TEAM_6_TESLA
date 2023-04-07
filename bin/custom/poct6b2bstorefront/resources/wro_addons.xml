@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<groups xmlns="http://www.isdc.ro/wro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+   <group name="addons_responsive">
+      <js>/_ui/addons/commerceorgaddon/responsive/common/js/commerceorgnavigation.js</js>
+      <js>/_ui/addons/commerceorgaddon/responsive/common/js/commerceorgaddon.js</js>
+      <js>/_ui/addons/commerceorgaddon/responsive/common/js/jquery.validate.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.checkoutsummary.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.paymentType.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.replenishment.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.orderform.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.approval.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/secureportal.js</js>
+   </group>
+</groups>
+
