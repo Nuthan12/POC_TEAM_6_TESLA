@@ -1,0 +1,25 @@
+$productCatalog=powertoolsProductCatalog
+$productCatalogName=Powertools Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+
+# Language
+$lang=en
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;ean;variantType(code);unit(code)[default=pieces];$catalogVersion
+                           ;4567180;1595, brand_753;Tesla;0.601.882.M03;3165140559720
+                           ;4567181;1595, brand_753;Tesla;0.601.893.F00;3165140484565
+                           ;4567182;1595, brand_753;Tesla;0.601.825.200;3165140362382
+                           ;4567189;1595, brand_753;Tesla;0.601.858.009;3165140546836
+                           ;4567223;1595, brand_753;Tesla;0.601.294.703;3165140107136
+       
+
+
+
+UPDATE Product;code[unique=true];name[lang=$lang];description[lang=$lang];summary[lang=$lang];$catalogVersion
+              ;4567180;Tesla Model 3 Car Cover ;Shield your Tesla from the harshest of elements with this Outdoor Car Cover..;ACCECORIES (single cover)
+              ;4567181;Tesla Model 3 Soft Cooler ;For best travel.;ACCECORIES (single piece)
+              ;4567182;Back Pillow and Seat Cushion ;For best travel.;ACCECORIES (two cushions)
+              ;4567189;Model 3/Y Automatic Garage Opener;Connect your Model 3 or Model Y to your garage door, gate system and other radio-frequency (RF) controlled devices with the fully integrated HomeLink® module. Your garage will automatically open or close when a connected vehicle arrives or leaves. ;ACCECORIES (two single piece)
+              ;4567223;Tesla Model 3 Rear Trunk Spoiler - Matte Carbon Print;Improve high-speed stability by adding the Model 3 Carbon Fiber Spoiler to your trunk lid. Made from lightweight, cross-woven carbon fiber with a matte epoxy finish.;ACCECORIES (single piece)
